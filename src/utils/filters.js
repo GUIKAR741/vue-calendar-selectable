@@ -3,6 +3,11 @@ export const abr = value => {
   return `${value.slice(0, 3).toUpperCase()}`
 }
 
+export const upr = value => {
+  if (!value) return ''
+  return `${value.toUpperCase()}`
+}
+
 export const ymd = obj => {
   if (!obj) return ''
   return `${obj.fullYear}-${obj.monthNumber}-${obj.day}`

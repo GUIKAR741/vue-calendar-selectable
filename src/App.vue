@@ -16,12 +16,17 @@
       </div>
       <div :class="monthly.maxOffset < 0 ? 'wrapper' : 'wrapper-flex'">
         <div ref="monthly" state="monthly" class="months ui-draggable" style="left: 0px;" @mousedown="initDrag($event, monthly)" @touchstart="initDrag($event, monthly)" :style="monthly.phase === 'dragging' ? {pointerEvents: 'none', transition: 'none', cursor:'-webkit-grab'} : {} ">
-          <div v-for="month in calendar.months" :key="`${month.fullYear}-${month.monthNumber}`" v-if="month" class="month-cell cell" :class="{prev: month.prev, next: month.next, past: month.past}" @click="toggleSelectMonth($event, month)" :month-id="`${month.fullYear}-${month.monthNumber}`" :year-id="month.fullYear" :selected="isSelected(null, month, null)">
-            <div class="cell-content" :selected="selectedDate.monthNumber == month.monthNumber && selectedDate.fullYear == month.fullYear" :style="{backgroundColor: `${isSelected(null, month, null) || (selectedDate.monthNumber == month.monthNumber && selectedDate.fullYear == month.fullYear) ? accentColor : ''}` }" @click.stop="scrollDayIntoView()">
-              <span class="cell-content month-name">{{MONTHS[month.monthNumber] | abr}} </span>
-              <div class="hover" v-if="month.next"> {{month.fullYear}}</div>
-              <div class="hover" v-if="month.prev"> {{month.fullYear}}</div>
-              <span v-if="!years"> {{month.fullYear%1000}}</span>
+          <div
+            class="month-cell cell"
+            :month-id="`${selectedDate.fullYear}-${selectedDate.monthNumber}`"
+            :year-id="selectedDate.fullYear"
+            :selected="true">
+            <div 
+              class="cell-content"
+              :style="{backgroundColor: accentColor}"
+              >
+              <span class="cell-content month-name">{{MONTHS[selectedDate.monthNumber] | upr}} </span>
+              <span v-if="!years"> {{selectedDate.fullYear}}</span>
             </div>
           </div>
         </div>
@@ -31,7 +36,7 @@
       <div class="arrow right" :class="years ? 'middle' : 'top'" @click="goTo($event, monthly, 1)" :style="{visibility: monthly.realOffset <= monthly.maxOffset ? 'hidden' : 'visible'}">
       </div>
       <div class="wrapper">
-        <div ref="daily" state="daily" class="days ui-draggable" :style="daily.phase === 'dragging' ? {pointerEvents: 'none', transition: 'none', cursor:'-webkit-grab'} : {} " style="left: 0px;" @mousedown="initDrag($event, daily)" @touchstart="initDrag($event, daily)">
+        <div ref="daily" state="daily" class="days" style="left: 0px;" >
           <div v-for="day in calendar.days" :key="day | ymd" :date="day | ymd" :closed="day.disabled" class="cal-cell cell" :class="{first: day.day == 1, next: day.next, prev: day.prev, today: day.today, }" :month-id="day.monthNumber" :year-id="day.fullYear" :day-id="day.day" @click="toggleSelect($event, day)" :selected="isSelected(day, null, null)" :style="{backgroundColor: `${isSelected(day, null, null) ? accentColor : ''}` }">
             <div class="hover" v-if="day.next"> {{day.fullYear}}</div>
             <div class="hover" v-if="day.prev"> {{day.fullYear}}</div>
@@ -54,13 +59,13 @@
   </section>
 </template>
 <script>
-import {abr, ymd} from '@/utils/filters'
+import {abr, upr, ymd} from '@/utils/filters'
 import {buildCalendar, buildEntireCalendar} from '@/utils/buildCalendar'
 import props from '@/utils/props'
 import languages from '@/utils/CONSTANTS'
 export default {
   name: 'VueCal',
-  filters: {abr, ymd},
+  filters: {abr, upr, ymd},
   props: props,
   computed: {
     currentMonth() {
@@ -83,6 +88,9 @@ export default {
     },
     currentState() {
       return [this.daily, this.monthly, this.yearly].filter(el => el.phase !== 'sleep')[0]
+    },
+    indDay() {
+      return this.calendar.days.findIndex(day => this.findIndDayCalendar(day, this.selectedDate))
     },
   },
   data() {
@@ -128,11 +136,31 @@ export default {
     }
   },
   methods: {
+    findIndDayCalendar(day, findDate) {
+      return (
+        findDate.day === day.day &&
+        findDate.dayOfTheWeek === day.dayOfTheWeek &&
+        findDate.monthNumber === day.monthNumber &&
+        findDate.fullYear === day.fullYear
+      )
+    },
     goTo(e, state, coef) {
-      if (state.realOffset > 0 || state.realOffset <= state.maxOffset) return false
+      if (state.realOffset > 0 || state.realOffset < state.maxOffset) return false
       let elem = this.$refs[`${state.id}`]
       let cell = elem.firstChild.clientWidth
-      state.realOffset -= Math.floor(elem.parentNode.clientWidth / cell) * cell * coef
+      // let minScroll = -cell
+      // let maxScroll = state.maxOffset + cell
+      // let testOffset = state.realOffset - cell * coef
+      // console.log(state.rea)
+      // console.log(minScroll, maxScroll, testOffset)
+      if (state.realOffset >= 0 || state.realOffset <= state.maxOffset) {
+        if (this.indDay > 6 && this.indDay < this.calendar.days.length - 7) {
+          state.realOffset -= cell * coef
+        }
+      } else {
+        state.realOffset -= cell * coef
+      }
+      this.dateSelected(this.calendar.days[this.indDay + (cell / cell) * coef])
       if (state.realOffset > 0) state.realOffset = 0
       if (state.realOffset < state.maxOffset) state.realOffset = state.maxOffset
       elem.style.left = `${state.realOffset}px`
@@ -193,11 +221,17 @@ export default {
         this.$refs.yearly.querySelector(`[year-id="${e.target.getAttribute('year-id')}"]`).click()
         return
       }
-      if (e.target.getAttribute('selected')) {
-        this.selectedDate = {}
-        return this.$emit('dateCleared')
+      // if (e.target.getAttribute('selected')) {
+      //   this.selectedDate = {}
+      //   return this.$emit('dateCleared')
+      // }
+      const daysScroll =
+        this.calendar.days.findIndex(dayL => this.findIndDayCalendar(dayL, day)) -
+        this.calendar.days.findIndex(dayL => this.findIndDayCalendar(dayL, this.selectedDate))
+      this.goTo(e, this.daily, daysScroll)
+      if (day != this.selectedDate) {
+        this.dateSelected(day)
       }
-      this.dateSelected(day)
     },
     dateSelected(date) {
       this.selectedDate = date
@@ -546,12 +580,6 @@ export default {
             transition: all 1s ease;
             opacity: 0;
           }
-        }
-      }
-      &.today {
-        .day-number {
-          color: red;
-          text-decoration: underline;
         }
       }
       .day-number {

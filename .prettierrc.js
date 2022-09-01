@@ -26,7 +26,7 @@ module.exports = {
   //
   // NOTE: The `parser` option is automatically set by the plug-in
   // (JsPrettier), based on the contents of current file or selection.
-  parser: 'babylon',
+  parser: 'babel',
 
   // Whether to add a semicolon at the end of every line (semi: true), or
   // only at the beginning of lines that may introduce ASI failures (semi: false)

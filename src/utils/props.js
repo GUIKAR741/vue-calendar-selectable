@@ -1,12 +1,12 @@
 export default {
   lang: {
     type: String,
-    enum: ['EN', 'FR'],
-    default: 'EN',
+    enum: ['EN', 'FR', 'PT_BR'],
+    default: 'PT_BR',
   },
   days: {
     type: Number,
-    default: 365,
+    default: 30,
   },
   months: {
     type: Number,
@@ -18,7 +18,7 @@ export default {
   },
   pastIsDisabled: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   years: {
     type: Number,
@@ -30,7 +30,19 @@ export default {
   },
   selected: {
     type: Object,
-    default: () => ({}),
+    default() {
+      const date = new Date()
+      const gWeekDay = date => date.getDay()
+      const gDay = date => date.getDate()
+      const gMonth = date => date.getMonth()
+      const gYear = date => date.getFullYear()
+      return {
+        dayOfTheWeek: gWeekDay(date),
+        day: gDay(date),
+        monthNumber: gMonth(date),
+        fullYear: gYear(date),
+      }
+    },
   },
   disabledWeekDays: {
     type: Object,
