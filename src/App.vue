@@ -37,7 +37,7 @@
       </div>
       <div class="wrapper">
         <div ref="daily" state="daily" class="days" style="left: 0px;" >
-          <div v-for="day in calendar.days" :key="day | ymd" :date="day | ymd" :closed="day.disabled" class="cal-cell cell" :class="{first: day.day == 1, next: day.next, prev: day.prev, today: day.today, }" :month-id="day.monthNumber" :year-id="day.fullYear" :day-id="day.day" @click="toggleSelect($event, day)" :selected="isSelected(day, null, null)" :style="{backgroundColor: `${isSelected(day, null, null) ? accentColor : ''}` }">
+          <div v-for="day in calendar.days" :key="day | ymd" :date="day | ymd" :closed="day.disabled" class="cal-cell cell" :class="{next: day.next, prev: day.prev, today: day.today, }" :month-id="day.monthNumber" :year-id="day.fullYear" :day-id="day.day" @click="toggleSelect($event, day)" :selected="isSelected(day, null, null)" :style="{backgroundColor: `${isSelected(day, null, null) ? accentColor : ''}` }">
             <div class="hover" v-if="day.next"> {{day.fullYear}}</div>
             <div class="hover" v-if="day.prev"> {{day.fullYear}}</div>
             <div class="cell-content">
@@ -51,9 +51,9 @@
           </div>
         </div>
       </div>
-      <div class="arrow bottom left" @click="goTo($event, daily, -1)" :style="{visibility: daily.realOffset >= 0 ? 'hidden' : 'visible'}">
+      <div class="arrow bottom left" @click="goTo($event, daily, -1)">
       </div>
-      <div class="arrow bottom right" @click="goTo($event, daily, 1)" :style="{visibility: daily.realOffset <= daily.maxOffset ? 'hidden' : 'visible'}">
+      <div class="arrow bottom right" @click="goTo($event, daily, 1)">
       </div>
     </div>
   </section>
@@ -145,25 +145,14 @@ export default {
       )
     },
     goTo(e, state, coef) {
-      if (state.realOffset > 0 || state.realOffset < state.maxOffset) return false
       let elem = this.$refs[`${state.id}`]
       let cell = elem.firstChild.clientWidth
-      // let minScroll = -cell
-      // let maxScroll = state.maxOffset + cell
-      // let testOffset = state.realOffset - cell * coef
-      // console.log(state.rea)
-      // console.log(minScroll, maxScroll, testOffset)
-      if (state.realOffset >= 0 || state.realOffset <= state.maxOffset) {
-        if (this.indDay > 6 && this.indDay < this.calendar.days.length - 7) {
-          state.realOffset -= cell * coef
-        }
-      } else {
-        state.realOffset -= cell * coef
+      let indice = this.indDay + (cell / cell) * coef
+      if (indice >= 0 && indice < this.calendar.days.length) {
+        this.dateSelected(this.calendar.days[indice])
       }
-      this.dateSelected(this.calendar.days[this.indDay + (cell / cell) * coef])
-      if (state.realOffset > 0) state.realOffset = 0
-      if (state.realOffset < state.maxOffset) state.realOffset = state.maxOffset
-      elem.style.left = `${state.realOffset}px`
+      if (state.realOffset > 0 || state.realOffset < state.maxOffset) return false
+      this.scrollDayIntoView(false)
       return true
     },
     initDrag(e, state) {
@@ -221,17 +210,13 @@ export default {
         this.$refs.yearly.querySelector(`[year-id="${e.target.getAttribute('year-id')}"]`).click()
         return
       }
-      // if (e.target.getAttribute('selected')) {
-      //   this.selectedDate = {}
-      //   return this.$emit('dateCleared')
-      // }
-      const daysScroll =
-        this.calendar.days.findIndex(dayL => this.findIndDayCalendar(dayL, day)) -
-        this.calendar.days.findIndex(dayL => this.findIndDayCalendar(dayL, this.selectedDate))
-      this.goTo(e, this.daily, daysScroll)
       if (day != this.selectedDate) {
         this.dateSelected(day)
       }
+      this.scrollDayIntoView(this.$refs.daily.querySelector(`[date="${this.data(day)}`))
+    },
+    data(day) {
+      return day.fullYear + '-' + day.monthNumber + '-' + day.day
     },
     dateSelected(date) {
       this.selectedDate = date
@@ -260,6 +245,7 @@ export default {
       if (m.maxOffset > 0) m.maxOffset = 0
       if (d.style.left.slice(0, -2) < d.maxOffset) d.style.left = `${d.maxOffset}px`
       if (m.style.left.slice(0, -2) < m.maxOffset) m.style.left = `${m.maxOffset}px`
+      this.scrollDayIntoView(false)
       if (this.years) {
         y.maxOffset = this.$refs.yearly.parentNode.clientWidth - this.$refs.yearly.clientWidth
         if (y.maxOffset > 0) y.maxOffset = 0
@@ -315,7 +301,7 @@ export default {
     scrollDayIntoView(el) {
       if (!el) el = this.$refs.daily.querySelector(`[selected="selected"]`)
       let offset = -el.offsetLeft + el.parentNode.parentNode.clientWidth / 2 - el.clientWidth / 2
-      this.daily.realOffset = offset < 0 ? offset : 0
+      this.daily.realOffset = offset < 0 ? (offset > this.daily.maxOffset ? offset : this.daily.maxOffset) : 0
       this.$refs.daily.style.left = `${this.daily.realOffset}px`
     },
     checkElementIsInView(state) {
