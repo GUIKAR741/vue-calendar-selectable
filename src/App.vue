@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <div>
     <div class="drag-calendar" style="display: block; background-color: 'transparent'" :style="{height: years ? '12.6rem' : '9.6rem'}">
       <div v-if="years" :class="yearly.maxOffset < 0 ? 'wrapper' : 'wrapper-flex'">
         <div ref="yearly" state="yearly" class="years ui-draggable" style="left: 0px;" @mousedown="initDrag($event, yearly)" @touchstart="initDrag($event, yearly)" :style="yearly.phase === 'dragging' ? {pointerEvents: 'none', transition: 'none', cursor:'-webkit-grab'} : {} ">
@@ -56,7 +56,7 @@
       <div class="arrow bottom right" @click="goTo($event, daily, 1)">
       </div>
     </div>
-  </section>
+  </div>
 </template>
 <script>
 import {abr, upr, ymd} from '@/utils/filters'
