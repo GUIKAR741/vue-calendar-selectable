@@ -220,7 +220,7 @@ export default {
     },
     dateSelected(date) {
       this.selectedDate = date
-      const formattedDate = new Date(Date.UTC(date.fullYear, date.monthNumber, date.day))
+      const formattedDate = new Date(Date.UTC(date.fullYear, date.monthNumber, date.day)).toISOString().split('T')[0]
       this.$emit('dateSelected', formattedDate)
     },
     handleResize() {
