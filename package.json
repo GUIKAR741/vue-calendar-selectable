@@ -1,6 +1,6 @@
 {
   "name": "vue-draggable-cal",
-  "version": "2.8.2",
+  "version": "2.8.3",
   "main": "dist/draggableCal.common.js",
   "module": "dist/draggableCal.esm.js",
   "unpkg": "dist/draggableCal.umd.js",

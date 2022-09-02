@@ -518,6 +518,7 @@ export default {
     width: max-content;
     height: 5rem;
     transition: all 1s ease;
+    display: flex;
     .cell {
       float: left;
       width: 4rem;
@@ -525,6 +526,7 @@ export default {
       margin: 0;
       border-right: 1px solid rgba(0, 0, 0, 0.03);
       text-align: center;
+      align-self: center;
       position: relative;
       color: #888;
       &:first-child {
@@ -584,6 +586,7 @@ export default {
         font-weight: 100;
         font-size: 12px;
         margin-top: 0px;
+        padding-top: 5px;
         z-index: 1;
         position: relative;
       }
