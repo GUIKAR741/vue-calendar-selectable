@@ -15,7 +15,7 @@
       <div v-if="years" class="arrow top right" @click="goTo($event, yearly, 1)" :style="{visibility: yearly.realOffset <= yearly.maxOffset ? 'hidden' : 'visible'}">
       </div>
       <div :class="monthly.maxOffset < 0 ? 'wrapper' : 'wrapper-flex'">
-        <div ref="monthly" state="monthly" class="months ui-draggable" style="left: 0px;" @mousedown="initDrag($event, monthly)" @touchstart="initDrag($event, monthly)" :style="monthly.phase === 'dragging' ? {pointerEvents: 'none', transition: 'none', cursor:'-webkit-grab'} : {} ">
+        <div ref="monthly" state="monthly" class="months" style="left: 0px;">
           <div
             class="month-cell cell"
             :month-id="`${selectedDate.fullYear}-${selectedDate.monthNumber}`"
@@ -36,7 +36,7 @@
       <div class="arrow right" :class="years ? 'middle' : 'top'" @click="goTo($event, monthly, 1)" :style="{visibility: monthly.realOffset <= monthly.maxOffset ? 'hidden' : 'visible'}">
       </div>
       <div class="wrapper">
-        <div ref="daily" state="daily" class="days" style="left: 0px;" >
+        <div ref="daily" state="daily" class="days" style="left: 0px; cursor:pointer" >
           <div v-for="day in calendar.days" :key="day | ymd" :date="day | ymd" :closed="day.disabled" class="cal-cell cell" :class="{next: day.next, prev: day.prev, today: day.today, }" :month-id="day.monthNumber" :year-id="day.fullYear" :day-id="day.day" @click="toggleSelect($event, day)" :selected="isSelected(day, null, null)" :style="{backgroundColor: `${isSelected(day, null, null) ? accentColor : ''}` }">
             <div class="hover" v-if="day.next"> {{day.fullYear}}</div>
             <div class="hover" v-if="day.prev"> {{day.fullYear}}</div>
@@ -210,7 +210,7 @@ export default {
         this.$refs.yearly.querySelector(`[year-id="${e.target.getAttribute('year-id')}"]`).click()
         return
       }
-      if (day != this.selectedDate) {
+      if (!this.findIndDayCalendar(day, this.selectedDate)) {
         this.dateSelected(day)
       }
       this.scrollDayIntoView(this.$refs.daily.querySelector(`[date="${this.data(day)}`))
