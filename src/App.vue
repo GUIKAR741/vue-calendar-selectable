@@ -64,7 +64,7 @@ import {buildCalendar, buildEntireCalendar} from '@/utils/buildCalendar'
 import props from '@/utils/props'
 import languages from '@/utils/CONSTANTS'
 export default {
-  name: 'VueCal',
+  name: 'VueCalendar',
   filters: {abr, upr, ymd},
   props: props,
   computed: {

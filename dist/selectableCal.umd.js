@@ -1,5 +1,14 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["selectableCal"] = factory();
+	else
+		root["selectableCal"] = factory();
+})((typeof self !== 'undefined' ? self : this), function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -1021,6 +1030,22 @@ module.exports = function (it, S) {
 
 /***/ }),
 
+/***/ "2fc0":
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__("b041");
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@font-face{font-family:Oswald;font-style:normal;font-weight:400;src:url(" + escape(__webpack_require__("414c")) + ") format(\"woff2\")}[data-v-03c06e6f]:root{font-size:14px;font-size:1.75vw}@media (max-width:742.85714px){[data-v-03c06e6f]:root{font-size:13px}}@media (min-width:914.28571px){[data-v-03c06e6f]:root{font-size:16px}}.container[data-v-03c06e6f]{padding-top:1em;width:95%;margin:auto}.drag-calendar[data-v-03c06e6f]{-webkit-box-sizing:content-box;box-sizing:content-box;clear:both;overflow:hidden;width:100%;position:relative;padding:0;line-height:1;background-color:transparent}.drag-calendar .wrapper-flex[data-v-03c06e6f]{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;width:100%}.drag-calendar .ui-draggable[data-v-03c06e6f]{cursor:move;cursor:-webkit-grab}.drag-calendar .ui-draggable .cell-content[data-v-03c06e6f]{pointer-events:none}.drag-calendar .cal-cell[selected=selected][data-v-03c06e6f],.drag-calendar .month-cell[selected=selected][data-v-03c06e6f]{border-radius:.5em;-webkit-transform:scale(1.1);transform:scale(1.1);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease;padding:1.25em}.drag-calendar .cal-cell[selected=selected] .cell-content div[data-v-03c06e6f],.drag-calendar .month-cell[selected=selected] .cell-content div[data-v-03c06e6f]{-webkit-transform:scale(1.5);transform:scale(1.5);color:#fff}.drag-calendar .cal-cell[selected=selected] .cell-content .day-number[data-v-03c06e6f],.drag-calendar .month-cell[selected=selected] .cell-content .day-number[data-v-03c06e6f]{margin-bottom:.25rem}.drag-calendar .arrow[data-v-03c06e6f]{font-family:Oswald;width:2rem;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:absolute;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;z-index:1000;-webkit-transition:all .2s;transition:all .2s;background-color:#fff;color:#a9a9a9}.drag-calendar .arrow[data-v-03c06e6f]:hover{background-color:#f8f8ff;-webkit-box-shadow:inset 0 0 5px 1px rgba(0,0,0,.1),inset 0 0 5px 1px rgba(0,0,0,.1);box-shadow:inset 0 0 5px 1px rgba(0,0,0,.1),inset 0 0 5px 1px rgba(0,0,0,.1);cursor:pointer;color:#000}.drag-calendar .arrow.bottom[data-v-03c06e6f]{height:5rem;bottom:1.1rem;font-size:3rem}.drag-calendar .arrow.middle[data-v-03c06e6f]{top:3.25rem;height:2.5rem;font-size:2rem}.drag-calendar .arrow.top[data-v-03c06e6f]{top:.25rem;height:2.5rem;font-size:2rem}.drag-calendar .arrow.left[data-v-03c06e6f]{left:0}.drag-calendar .arrow.left.middle[data-v-03c06e6f]:before,.drag-calendar .arrow.left.top[data-v-03c06e6f]:before{content:\"<\";height:2.5rem}.drag-calendar .arrow.left.bottom[data-v-03c06e6f]:before{content:\"<\";height:4rem}.drag-calendar .arrow.right[data-v-03c06e6f]{right:0}.drag-calendar .arrow.right.middle[data-v-03c06e6f]:before,.drag-calendar .arrow.right.top[data-v-03c06e6f]:before{content:\">\";height:2.5rem}.drag-calendar .arrow.right[data-v-03c06e6f]:before{content:\">\";height:4rem}.drag-calendar .arrow[data-v-03c06e6f]:active{-webkit-transform:scale(.8);transform:scale(.8)}.drag-calendar .days[data-v-03c06e6f]{z-index:1;float:left;margin:0;padding:0;position:relative;width:-webkit-max-content;width:-moz-max-content;width:max-content;height:5rem;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-box;display:-ms-flexbox;display:flex}.drag-calendar .days .cell[data-v-03c06e6f]{float:left;width:4rem;padding:1.5rem 1.25rem;margin:0;border-right:1px solid rgba(0,0,0,.03);text-align:center;-ms-flex-item-align:center;align-self:center;position:relative;color:#888}.drag-calendar .days .cell[data-v-03c06e6f]:first-child{margin-left:.4em}.drag-calendar .days .cell[data-v-03c06e6f]:last-child{margin-right:.4em}.drag-calendar .days .cell[closed][data-v-03c06e6f],.drag-calendar .days .cell[disabled=disabled][data-v-03c06e6f]{background-color:hsla(0,0%,92.2%,.5);color:#a0a0a0;opacity:.8;pointer-events:none;border-radius:.5em}.drag-calendar .days .cell.next[data-v-03c06e6f],.drag-calendar .days .cell.prev[data-v-03c06e6f]{background-color:rgba(0,0,0,.02);margin-right:.4rem;opacity:.5}.drag-calendar .days .cell.next .hover[data-v-03c06e6f],.drag-calendar .days .cell.prev .hover[data-v-03c06e6f]{position:absolute;opacity:0;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-weight:700}.drag-calendar .days .cell.next[data-v-03c06e6f]:hover,.drag-calendar .days .cell.prev[data-v-03c06e6f]:hover{opacity:1}.drag-calendar .days .cell.next:hover .hover[data-v-03c06e6f],.drag-calendar .days .cell.prev:hover .hover[data-v-03c06e6f]{-webkit-transition:all 1s ease;transition:all 1s ease;pointer-events:none;opacity:1}.drag-calendar .days .cell.next:hover .cell-content[data-v-03c06e6f],.drag-calendar .days .cell.prev:hover .cell-content[data-v-03c06e6f]{pointer-events:none;-webkit-transition:all 1s ease;transition:all 1s ease;opacity:0}.drag-calendar .days .cell .day-number[data-v-03c06e6f]{display:block;clear:both;font-weight:700;font-size:1.2em;z-index:1;position:relative}.drag-calendar .days .cell .day[data-v-03c06e6f]{display:block;clear:both;text-transform:uppercase;width:100%;font-weight:100;font-size:12px;margin-top:0;padding-top:5px;z-index:1;position:relative}.drag-calendar .days .cell.first[data-v-03c06e6f]{background-color:rgba(0,0,0,.02);color:#666}.drag-calendar .days .cell.first .day[data-v-03c06e6f]{font-weight:700}.drag-calendar .days .cell.first .day-number[data-v-03c06e6f]{font-size:1.2em}.drag-calendar .months[data-v-03c06e6f]{z-index:1;margin:0;height:2.5rem;padding:0;padding-left:.6rem;width:-webkit-max-content;width:-moz-max-content;width:max-content;margin:.25rem 0 .75rem;background-color:transparent;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.drag-calendar .months[data-v-03c06e6f],.drag-calendar .months .cell[data-v-03c06e6f]{float:left;position:relative;-webkit-box-flex:1;-ms-flex:1;flex:1}.drag-calendar .months .cell[data-v-03c06e6f]{width:8rem;padding:.6rem;text-align:center;color:#888;border-right:1px solid rgba(0,0,0,.03)}.drag-calendar .months .cell:not([selected=selected]) .cell-content[selected=selected][data-v-03c06e6f]{opacity:1;color:#fff;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;margin-left:auto;margin-right:auto;padding:.4rem;margin-top:-.4rem;border-radius:.5rem;pointer-events:auto;cursor:pointer;z-index:3}.drag-calendar .months .cell.past[data-v-03c06e6f]{background-color:hsla(0,0%,87.1%,.6);color:#d3d3d3;opacity:.8;pointer-events:none;border-right:.5px solid hsla(0,0%,87.1%,.8)}.drag-calendar .months .cell.next[data-v-03c06e6f],.drag-calendar .months .cell.prev[data-v-03c06e6f]{background-color:rgba(0,0,0,.02);margin-right:.4rem;opacity:.5}.drag-calendar .months .cell.next[data-v-03c06e6f]:hover,.drag-calendar .months .cell.prev[data-v-03c06e6f]:hover{opacity:1}.drag-calendar .months .cell.next:hover .hover[data-v-03c06e6f],.drag-calendar .months .cell.prev:hover .hover[data-v-03c06e6f]{-webkit-transition:all 1s ease;transition:all 1s ease;opacity:1;pointer-events:none}.drag-calendar .months .cell.next:hover .month-name[data-v-03c06e6f],.drag-calendar .months .cell.prev:hover .month-name[data-v-03c06e6f]{-webkit-transition:all 1s ease;transition:all 1s ease;opacity:0}.drag-calendar .months .cell.next .hover[data-v-03c06e6f],.drag-calendar .months .cell.prev .hover[data-v-03c06e6f]{position:absolute;opacity:0;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.drag-calendar .months .cell.next .cell-content[data-v-03c06e6f],.drag-calendar .months .cell.prev .cell-content[data-v-03c06e6f]{pointer-events:none;opacity:.5;color:#000;font-weight:700;font-size:1rem}.drag-calendar .months .cell[selected=selected] .cell-content[data-v-03c06e6f]{opacity:.5;color:#fff;border-radius:.5rem;padding:.3em;margin-top:-.3rem;font-weight:350}.drag-calendar .months .cell[selected=selected] .cell-content .month-name[data-v-03c06e6f]{font-size:.9rem;padding:0}.drag-calendar .months .cell.next[data-v-03c06e6f]{-webkit-box-flex:0.5;-ms-flex:0.5;flex:0.5}.drag-calendar .months .cell .cell-content[data-v-03c06e6f]{font-weight:200;font-size:1em}.drag-calendar .months .cell .cell-content .month-name[data-v-03c06e6f]{opacity:1;font-weight:700;font-size:.9rem;z-index:1;position:relative;text-transform:uppercase}.drag-calendar .years[data-v-03c06e6f]{z-index:1;margin:0;height:2.5rem;padding:0;width:-webkit-max-content;width:-moz-max-content;width:max-content;border-bottom:0 solid #f8f8ff;margin:.25rem 0 .25rem;background-color:transparent;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-box;display:-ms-flexbox;display:flex}.drag-calendar .years[data-v-03c06e6f],.drag-calendar .years .cell[data-v-03c06e6f]{float:left;position:relative;-webkit-box-flex:1;-ms-flex:1;flex:1}.drag-calendar .years .cell[data-v-03c06e6f]{width:16rem;padding:.6rem;text-align:center;color:#888;border-right:1px solid rgba(0,0,0,.03)}.drag-calendar .years .cell .cell-content[data-v-03c06e6f]{font-weight:600;font-size:1rem}.drag-calendar .years .cell .cell-content .month-name[data-v-03c06e6f]{font-weight:700;font-size:1rem;z-index:1;position:relative;text-transform:uppercase}.drag-calendar .years .cell[selected=selected] .cell-content[data-v-03c06e6f]{opacity:.25;color:#fff;border-radius:.5rem;padding:.3rem;margin-top:-.3rem}.drag-calendar .years .cell[selected=selected] .cell-content .year[data-v-03c06e6f]{font-weight:600;opacity:1}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "31c2":
 /***/ (function(module, exports) {
 
@@ -1799,17 +1824,6 @@ module.exports = function (key) {
 
 /***/ }),
 
-/***/ "6176":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_0c0a4e2f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("b92c");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_0c0a4e2f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_0c0a4e2f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
-
-
-/***/ }),
-
 /***/ "626a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2485,6 +2499,22 @@ module.exports = !__webpack_require__("79e5")(function () {
 
 /***/ }),
 
+/***/ "a3fe":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("2fc0");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("499e").default
+var update = add("9ef06c38", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
 /***/ "a47f":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2764,22 +2794,6 @@ module.exports = Array.isArray || function isArray(arg) {
   return cof(arg) == 'Array';
 };
 
-
-/***/ }),
-
-/***/ "b92c":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("d4a2");
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__("499e").default
-var update = add("2c852f5e", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -3442,22 +3456,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "d4a2":
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__("b041");
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, "@font-face{font-family:Oswald;font-style:normal;font-weight:400;src:url(" + escape(__webpack_require__("414c")) + ") format(\"woff2\")}[data-v-0c0a4e2f]:root{font-size:14px;font-size:1.75vw}@media (max-width:742.85714px){[data-v-0c0a4e2f]:root{font-size:13px}}@media (min-width:914.28571px){[data-v-0c0a4e2f]:root{font-size:16px}}.container[data-v-0c0a4e2f]{padding-top:1em;width:95%;margin:auto}.drag-calendar[data-v-0c0a4e2f]{-webkit-box-sizing:content-box;box-sizing:content-box;clear:both;overflow:hidden;width:100%;position:relative;padding:0;line-height:1;background-color:transparent}.drag-calendar .wrapper-flex[data-v-0c0a4e2f]{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;width:100%}.drag-calendar .ui-draggable[data-v-0c0a4e2f]{cursor:move;cursor:-webkit-grab}.drag-calendar .ui-draggable .cell-content[data-v-0c0a4e2f]{pointer-events:none}.drag-calendar .cal-cell[selected=selected][data-v-0c0a4e2f],.drag-calendar .month-cell[selected=selected][data-v-0c0a4e2f]{border-radius:.5em;-webkit-transform:scale(1.1);transform:scale(1.1);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease;padding:1.25em}.drag-calendar .cal-cell[selected=selected] .cell-content div[data-v-0c0a4e2f],.drag-calendar .month-cell[selected=selected] .cell-content div[data-v-0c0a4e2f]{-webkit-transform:scale(1.5);transform:scale(1.5);color:#fff}.drag-calendar .cal-cell[selected=selected] .cell-content .day-number[data-v-0c0a4e2f],.drag-calendar .month-cell[selected=selected] .cell-content .day-number[data-v-0c0a4e2f]{margin-bottom:.25rem}.drag-calendar .arrow[data-v-0c0a4e2f]{font-family:Oswald;width:2rem;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:absolute;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;z-index:1000;-webkit-transition:all .2s;transition:all .2s;background-color:#fff;color:#a9a9a9}.drag-calendar .arrow[data-v-0c0a4e2f]:hover{background-color:#f8f8ff;-webkit-box-shadow:inset 0 0 5px 1px rgba(0,0,0,.1),inset 0 0 5px 1px rgba(0,0,0,.1);box-shadow:inset 0 0 5px 1px rgba(0,0,0,.1),inset 0 0 5px 1px rgba(0,0,0,.1);cursor:pointer;color:#000}.drag-calendar .arrow.bottom[data-v-0c0a4e2f]{height:5rem;bottom:1.1rem;font-size:3rem}.drag-calendar .arrow.middle[data-v-0c0a4e2f]{top:3.25rem;height:2.5rem;font-size:2rem}.drag-calendar .arrow.top[data-v-0c0a4e2f]{top:.25rem;height:2.5rem;font-size:2rem}.drag-calendar .arrow.left[data-v-0c0a4e2f]{left:0}.drag-calendar .arrow.left.middle[data-v-0c0a4e2f]:before,.drag-calendar .arrow.left.top[data-v-0c0a4e2f]:before{content:\"<\";height:2.5rem}.drag-calendar .arrow.left.bottom[data-v-0c0a4e2f]:before{content:\"<\";height:4rem}.drag-calendar .arrow.right[data-v-0c0a4e2f]{right:0}.drag-calendar .arrow.right.middle[data-v-0c0a4e2f]:before,.drag-calendar .arrow.right.top[data-v-0c0a4e2f]:before{content:\">\";height:2.5rem}.drag-calendar .arrow.right[data-v-0c0a4e2f]:before{content:\">\";height:4rem}.drag-calendar .arrow[data-v-0c0a4e2f]:active{-webkit-transform:scale(.8);transform:scale(.8)}.drag-calendar .days[data-v-0c0a4e2f]{z-index:1;float:left;margin:0;padding:0;position:relative;width:-webkit-max-content;width:-moz-max-content;width:max-content;height:5rem;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-box;display:-ms-flexbox;display:flex}.drag-calendar .days .cell[data-v-0c0a4e2f]{float:left;width:4rem;padding:1.5rem 1.25rem;margin:0;border-right:1px solid rgba(0,0,0,.03);text-align:center;-ms-flex-item-align:center;align-self:center;position:relative;color:#888}.drag-calendar .days .cell[data-v-0c0a4e2f]:first-child{margin-left:.4em}.drag-calendar .days .cell[data-v-0c0a4e2f]:last-child{margin-right:.4em}.drag-calendar .days .cell[closed][data-v-0c0a4e2f],.drag-calendar .days .cell[disabled=disabled][data-v-0c0a4e2f]{background-color:hsla(0,0%,92.2%,.5);color:#a0a0a0;opacity:.8;pointer-events:none;border-radius:.5em}.drag-calendar .days .cell.next[data-v-0c0a4e2f],.drag-calendar .days .cell.prev[data-v-0c0a4e2f]{background-color:rgba(0,0,0,.02);margin-right:.4rem;opacity:.5}.drag-calendar .days .cell.next .hover[data-v-0c0a4e2f],.drag-calendar .days .cell.prev .hover[data-v-0c0a4e2f]{position:absolute;opacity:0;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-weight:700}.drag-calendar .days .cell.next[data-v-0c0a4e2f]:hover,.drag-calendar .days .cell.prev[data-v-0c0a4e2f]:hover{opacity:1}.drag-calendar .days .cell.next:hover .hover[data-v-0c0a4e2f],.drag-calendar .days .cell.prev:hover .hover[data-v-0c0a4e2f]{-webkit-transition:all 1s ease;transition:all 1s ease;pointer-events:none;opacity:1}.drag-calendar .days .cell.next:hover .cell-content[data-v-0c0a4e2f],.drag-calendar .days .cell.prev:hover .cell-content[data-v-0c0a4e2f]{pointer-events:none;-webkit-transition:all 1s ease;transition:all 1s ease;opacity:0}.drag-calendar .days .cell .day-number[data-v-0c0a4e2f]{display:block;clear:both;font-weight:700;font-size:1.2em;z-index:1;position:relative}.drag-calendar .days .cell .day[data-v-0c0a4e2f]{display:block;clear:both;text-transform:uppercase;width:100%;font-weight:100;font-size:12px;margin-top:0;padding-top:5px;z-index:1;position:relative}.drag-calendar .days .cell.first[data-v-0c0a4e2f]{background-color:rgba(0,0,0,.02);color:#666}.drag-calendar .days .cell.first .day[data-v-0c0a4e2f]{font-weight:700}.drag-calendar .days .cell.first .day-number[data-v-0c0a4e2f]{font-size:1.2em}.drag-calendar .months[data-v-0c0a4e2f]{z-index:1;margin:0;height:2.5rem;padding:0;padding-left:.6rem;width:-webkit-max-content;width:-moz-max-content;width:max-content;margin:.25rem 0 .75rem;background-color:transparent;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.drag-calendar .months[data-v-0c0a4e2f],.drag-calendar .months .cell[data-v-0c0a4e2f]{float:left;position:relative;-webkit-box-flex:1;-ms-flex:1;flex:1}.drag-calendar .months .cell[data-v-0c0a4e2f]{width:8rem;padding:.6rem;text-align:center;color:#888;border-right:1px solid rgba(0,0,0,.03)}.drag-calendar .months .cell:not([selected=selected]) .cell-content[selected=selected][data-v-0c0a4e2f]{opacity:1;color:#fff;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;margin-left:auto;margin-right:auto;padding:.4rem;margin-top:-.4rem;border-radius:.5rem;pointer-events:auto;cursor:pointer;z-index:3}.drag-calendar .months .cell.past[data-v-0c0a4e2f]{background-color:hsla(0,0%,87.1%,.6);color:#d3d3d3;opacity:.8;pointer-events:none;border-right:.5px solid hsla(0,0%,87.1%,.8)}.drag-calendar .months .cell.next[data-v-0c0a4e2f],.drag-calendar .months .cell.prev[data-v-0c0a4e2f]{background-color:rgba(0,0,0,.02);margin-right:.4rem;opacity:.5}.drag-calendar .months .cell.next[data-v-0c0a4e2f]:hover,.drag-calendar .months .cell.prev[data-v-0c0a4e2f]:hover{opacity:1}.drag-calendar .months .cell.next:hover .hover[data-v-0c0a4e2f],.drag-calendar .months .cell.prev:hover .hover[data-v-0c0a4e2f]{-webkit-transition:all 1s ease;transition:all 1s ease;opacity:1;pointer-events:none}.drag-calendar .months .cell.next:hover .month-name[data-v-0c0a4e2f],.drag-calendar .months .cell.prev:hover .month-name[data-v-0c0a4e2f]{-webkit-transition:all 1s ease;transition:all 1s ease;opacity:0}.drag-calendar .months .cell.next .hover[data-v-0c0a4e2f],.drag-calendar .months .cell.prev .hover[data-v-0c0a4e2f]{position:absolute;opacity:0;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.drag-calendar .months .cell.next .cell-content[data-v-0c0a4e2f],.drag-calendar .months .cell.prev .cell-content[data-v-0c0a4e2f]{pointer-events:none;opacity:.5;color:#000;font-weight:700;font-size:1rem}.drag-calendar .months .cell[selected=selected] .cell-content[data-v-0c0a4e2f]{opacity:.5;color:#fff;border-radius:.5rem;padding:.3em;margin-top:-.3rem;font-weight:350}.drag-calendar .months .cell[selected=selected] .cell-content .month-name[data-v-0c0a4e2f]{font-size:.9rem;padding:0}.drag-calendar .months .cell.next[data-v-0c0a4e2f]{-webkit-box-flex:0.5;-ms-flex:0.5;flex:0.5}.drag-calendar .months .cell .cell-content[data-v-0c0a4e2f]{font-weight:200;font-size:1em}.drag-calendar .months .cell .cell-content .month-name[data-v-0c0a4e2f]{opacity:1;font-weight:700;font-size:.9rem;z-index:1;position:relative;text-transform:uppercase}.drag-calendar .years[data-v-0c0a4e2f]{z-index:1;margin:0;height:2.5rem;padding:0;width:-webkit-max-content;width:-moz-max-content;width:max-content;border-bottom:0 solid #f8f8ff;margin:.25rem 0 .25rem;background-color:transparent;-webkit-transition:all 1s ease;transition:all 1s ease;display:-webkit-box;display:-ms-flexbox;display:flex}.drag-calendar .years[data-v-0c0a4e2f],.drag-calendar .years .cell[data-v-0c0a4e2f]{float:left;position:relative;-webkit-box-flex:1;-ms-flex:1;flex:1}.drag-calendar .years .cell[data-v-0c0a4e2f]{width:16rem;padding:.6rem;text-align:center;color:#888;border-right:1px solid rgba(0,0,0,.03)}.drag-calendar .years .cell .cell-content[data-v-0c0a4e2f]{font-weight:600;font-size:1rem}.drag-calendar .years .cell .cell-content .month-name[data-v-0c0a4e2f]{font-weight:700;font-size:1rem;z-index:1;position:relative;text-transform:uppercase}.drag-calendar .years .cell[selected=selected] .cell-content[data-v-0c0a4e2f]{opacity:.25;color:#fff;border-radius:.5rem;padding:.3rem;margin-top:-.3rem}.drag-calendar .years .cell[selected=selected] .cell-content .year[data-v-0c0a4e2f]{font-weight:600;opacity:1}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "d53b":
 /***/ (function(module, exports) {
 
@@ -3533,6 +3531,17 @@ var global = module.exports = typeof window != 'undefined' && window.Math == Mat
   // eslint-disable-next-line no-new-func
   : Function('return this')();
 if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "dc63":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_03c06e6f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a3fe");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_03c06e6f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_id_03c06e6f_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
 
 
 /***/ }),
@@ -3877,7 +3886,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"17b0444a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=0c0a4e2f&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"17b0444a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=03c06e6f&scoped=true&
 var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
@@ -4070,7 +4079,7 @@ var render = function render() {
 
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=0c0a4e2f&scoped=true&
+// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=03c06e6f&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -4502,7 +4511,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 /* harmony default export */ var Appvue_type_script_lang_js_ = ({
-  name: 'VueCal',
+  name: 'VueCalendar',
   filters: {
     abr: abr,
     upr: upr,
@@ -4844,8 +4853,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 });
 // CONCATENATED MODULE: ./src/App.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_Appvue_type_script_lang_js_ = (Appvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/App.vue?vue&type=style&index=0&id=0c0a4e2f&prod&lang=scss&scoped=true&
-var Appvue_type_style_index_0_id_0c0a4e2f_prod_lang_scss_scoped_true_ = __webpack_require__("6176");
+// EXTERNAL MODULE: ./src/App.vue?vue&type=style&index=0&id=03c06e6f&prod&lang=scss&scoped=true&
+var Appvue_type_style_index_0_id_03c06e6f_prod_lang_scss_scoped_true_ = __webpack_require__("dc63");
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
@@ -4960,7 +4969,7 @@ var component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "0c0a4e2f",
+  "03c06e6f",
   null
   
 )
@@ -5013,3 +5022,4 @@ module.exports = Object.getPrototypeOf || function (O) {
 /***/ })
 
 /******/ })["default"];
+});

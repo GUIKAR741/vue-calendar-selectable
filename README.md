@@ -1,8 +1,8 @@
-# DraggableCal
+# SelectableCal
 
 A datepicker Vue component. Compatible with Vue 2.x
 
-- [DraggableCal](#draggablecal)
+- [SelectableCal](#selectablecal)
   - [Demo](#demo)
   - [What the future holds](#what-the-future-holds)
   - [Install](#install)
@@ -19,11 +19,11 @@ A datepicker Vue component. Compatible with Vue 2.x
 
 ## Demo
 
-To view a demo online: [demo](https://liloow.github.io/vue-draggableCal/demo/)
+To view a demo online: [demo](https://liloow.github.io/vue-SelectableCal/demo/)
 
 To view demo examples locally clone the repo and run `npm i && npm serve --open App.vue`
 
-![gif](https://raw.githubusercontent.com/liloow/vue-draggableCal/master/screenshot.gif)
+![gif](https://raw.githubusercontent.com/liloow/vue-SelectableCal/master/screenshot.gif)
 
 ## What the future holds
 
@@ -47,12 +47,12 @@ yarn add vue-draggable-cal
 ```
 
 ```javascript
-import DraggableCal from 'vue-draggable-cal';
+import SelectableCal from 'vue-draggable-cal';
 
 export default {
   // ...
   components: {
-    DraggableCal,
+    SelectableCal,
   },
   // ...
 };
@@ -62,7 +62,7 @@ Or use directly from a CDN
 
 ```html
 <div id="app">
-  <DraggableCal></DraggableCal>
+  <SelectableCal></SelectableCal>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-draggable-cal"></script>
@@ -70,7 +70,7 @@ Or use directly from a CDN
 new Vue({
   el: '#app',
   components: {
-    DraggableCal,
+    SelectableCal,
   }
 })
 </script>
@@ -83,13 +83,13 @@ new Vue({
 
 <!-- OR -->
 
-<DraggableCal></DraggableCal>
+<SelectableCal></SelectableCal>
 ```
 
 Emits events
 
 ```html
-<DraggableCal @selectedDate="doSomething($event)"></DraggableCal>
+<SelectableCal @selectedDate="doSomething($event)"></SelectableCal>
 ```
 
 ## Available props

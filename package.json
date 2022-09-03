@@ -1,16 +1,16 @@
 {
-  "name": "vue-draggable-cal",
+  "name": "vue-calendar-selectable",
   "version": "2.8.3",
-  "main": "dist/draggableCal.common.js",
-  "module": "dist/draggableCal.esm.js",
-  "unpkg": "dist/draggableCal.umd.js",
+  "main": "dist/selectableCal.common.js",
+  "module": "dist/selectableCal.esm.js",
+  "unpkg": "dist/selectableCal.umd.js",
   "browser": {
-    "./sfc": "src/draggableCal.vue"
+    "./sfc": "src/selectableCal.vue"
   },
   "scripts": {
     "serve": "vue-cli-service serve ",
     "build": "vue-cli-service build",
-    "bundle": "vue-cli-service build --target lib --name draggableCal",
+    "bundle": "vue-cli-service build --target lib --name selectableCal",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -63,6 +63,6 @@
   "engines": {
     "node": ">=6"
   },
-  "homepage": "https://github.com/guikar741/vue-dragCal#readme",
+  "homepage": "https://github.com/guikar741/vue-calendar-selectable#readme",
   "license": "MIT"
 }
