@@ -44,6 +44,10 @@ export default {
       }
     },
   },
+  value: {
+    type: String,
+    default: '',
+  },
   disabledWeekDays: {
     type: Object,
     default: () => ({}),

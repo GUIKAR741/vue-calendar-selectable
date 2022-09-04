@@ -99,6 +99,7 @@ export default {
       DAYS: languages[this.lang].DAYS,
       MONTHS: languages[this.lang].MONTHS,
       selectedDate: this.selected,
+      dateContent: this.value,
       calendar: {
         months: [],
         days: [],
@@ -222,6 +223,7 @@ export default {
       this.selectedDate = date
       const formattedDate = new Date(Date.UTC(date.fullYear, date.monthNumber, date.day)).toISOString().split('T')[0]
       this.$emit('dateSelected', formattedDate)
+      this.$emit('input', formattedDate)
     },
     handleResize() {
       this.daily.phase = 'dragging'
@@ -584,7 +586,7 @@ export default {
         text-transform: uppercase;
         width: 100%;
         font-weight: 100;
-        font-size: 12px;
+        font-size: 11px;
         margin-top: 0px;
         padding-top: 5px;
         z-index: 1;

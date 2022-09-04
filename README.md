@@ -4,7 +4,6 @@ A datepicker Vue component. Compatible with Vue 2.x
 
 - [SelectableCal](#selectablecal)
   - [Demo](#demo)
-  - [What the future holds](#what-the-future-holds)
   - [Install](#install)
   - [Usage](#usage)
   - [Available props](#available-props)
@@ -19,20 +18,9 @@ A datepicker Vue component. Compatible with Vue 2.x
 
 ## Demo
 
-To view a demo online: [demo](https://liloow.github.io/vue-SelectableCal/demo/)
-
 To view demo examples locally clone the repo and run `npm i && npm serve --open App.vue`
 
-![gif](https://raw.githubusercontent.com/liloow/vue-SelectableCal/master/screenshot.gif)
-
-## What the future holds
-
-I am planning to add a few more customizations props in the near future, but I don't let my lack of imagination/creativity stop yours ! I strongly encourage you ton open Issues or pull requests if you have any ideas/needs that you'd like to see added to the component !
-
-- [ ] Add more languages
-- [ ] Add props for easy custom styling
-- [x] ~~Add the possibility to append years as well~~
-- [ ] Optimize the Array of days rendered
+![gif](https://raw.githubusercontent.com/GUIKAR741/vue-calendar-selectable/master/screenshot.gif)
 
 ## Install
 
@@ -47,7 +35,7 @@ yarn add vue-draggable-cal
 ```
 
 ```javascript
-import SelectableCal from 'vue-draggable-cal';
+import SelectableCal from 'vue-calendar-selectable';
 
 export default {
   // ...
@@ -58,28 +46,11 @@ export default {
 };
 ```
 
-Or use directly from a CDN
-
-```html
-<div id="app">
-  <SelectableCal></SelectableCal>
-</div>
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-draggable-cal"></script>
-<script>
-new Vue({
-  el: '#app',
-  components: {
-    SelectableCal,
-  }
-})
-</script>
-```
 
 ## Usage
 
 ```html
-<draggable-cal></draggable-cal>
+<selectable-cal></selectable-cal>
 
 <!-- OR -->
 
@@ -89,7 +60,7 @@ new Vue({
 Emits events
 
 ```html
-<SelectableCal @selectedDate="doSomething($event)"></SelectableCal>
+<SelectableCal @dateSelected="doSomething($event)"></SelectableCal>
 ```
 
 ## Available props
